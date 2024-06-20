@@ -1,0 +1,17 @@
+<% cars.forEach(function(car) { %>
+    <div class="card">
+        <div class="icon">
+            <i class="fa-solid fa-chalkboard-user"></i>
+        </div>
+        <div class="info">
+            <a class="carname"><%= car.Model %></a>
+            <img src="<%= car.Image %>" class="carpic">
+            <P>old price: <%= parseInt(car.Price).toLocaleString() %> EGP</P>
+            <P>new price: <%= parseInt(car.Price).toLocaleString() %> EGP</P>
+            <p>discount: <%= ((car.Price - car.NewPrice) / car.Price * 100).toFixed(2) %></p>
+        </div>
+        <div class="order">
+            <a href="/cars/<%= car.Name%>" class="carbtn">show details</a>
+        </div>
+    </div>
+  <% }); %>
