@@ -1,0 +1,161 @@
+
+
+@media (max-width: 575.5px) {
+    main{
+        width: 100%;
+    }
+
+    .video-box-history {
+        margin-left: 1%;
+        margin-top: 2%;
+    }
+    
+    .video-box-history video {
+        width: 100%;
+        height: auto;
+    }
+    
+    .video-box-history div {
+        position: static;
+        bottom: auto;
+        margin-top: 20px;
+        width: 100%;
+    }
+    
+}
+
+
+
+@media (min-width: 575.6px) {
+    .video-box-history div {
+        width: 40%; /* Adjust margin for smaller screens */
+    }
+
+
+}
+
+@media (min-width: 767px) {
+    .video-box-history div {
+        width: 50%; /* Adjust margin for smaller screens */
+    }
+}
+
+@media (min-width: 992px) {
+    .video-box-history div {
+        width: 60%; /* Adjust margin for smaller screens */
+    }
+}
+
+@media (min-width: 1200px) {
+    .video-box-history div {
+        width: 70%; /* Adjust margin for smaller screens */
+    }
+}
+
+.kiawallpaper{
+    width: 100%;
+    height: 840px;
+    border-bottom-left-radius:3% ;
+    border-bottom-right-radius: 3%;
+}
+
+                                            
+.title{
+    display: flex;
+    justify-content: center;
+    color: black;
+    margin-bottom: 50px;
+    margin-top: 50px;
+   
+
+}
+.content{
+    display: flex;
+    justify-content:center;
+    flex-direction:row;
+    flex-wrap:wrap;
+    
+}
+.card{
+    background-color: lightgray;
+    width: 25.25em;
+    box-shadow: 0 5px 25px rgba(1 1 1/15%);
+    border-radius: 20px;
+    padding :20px;
+    margin: 30px;
+    transition: 0.9 ease;
+ 
+}
+.card:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+.icon{
+    color: blue;
+    font-size: 5em;
+    padding: 20px;
+}
+.info{
+
+   font-weight: 700;
+   margin: 30px;
+}
+.carname{
+    color: black;
+    text-decoration: none;
+    font-size: xx-large;
+
+
+}
+.carpic{
+    width: 100%;
+    height: 200px;
+    border-radius: 2%;
+    margin-bottom: 20px;
+}
+
+
+.carbtn{
+    color: black;
+    background-color: lightblue;
+    text-decoration: none;
+    font-size: large;
+    
+    display: inline-block;
+    padding: 1em 2em;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-left: 18%;
+    transition: 0.2s ease;
+}
+.carbtn:hover{
+    background-color:blue;
+    transform:scale(1,1,1,1);
+    font-weight: bold;
+}
+.item:hover{
+   
+    color: black;
+    background-color: #0056b3;
+    border-radius: 10%;
+
+}
+.cont{
+    position: relative;
+    width: 100%;
+    height: 700px;
+    border-bottom-left-radius: 3%;
+    border-bottom-right-radius: 3%;
+    overflow: hidden;
+}
+.video-bg {
+    position: absolute;
+   
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }

@@ -1,0 +1,70 @@
+body{
+    overflow: auto;
+    background-color: #6b6b6b;
+     
+  }
+
+  
+  body {
+   background: url(images/Wallpaper.jpg);
+      font-family: Arial, sans-serif;
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      background-size: cover; /* This ensures the image covers the entire background */
+      background-repeat: no-repeat; /* Prevents the image from repeating */
+      background-position: center;
+    }
+    
+    h1 {
+   margin-left: 40%;
+      margin-bottom: 20px;
+      color: white;
+      font-weight: bolder;
+      margin-top: 70px;
+    }
+    
+    #userList {
+      margin-top: 20px;
+    }
+    
+  
+   
+    
+    
+    #userForm {
+      margin: 30px;
+      margin-top: 90px;
+      display: flex;
+      align-items: center;
+    }
+    
+    #userForm input[type="text"] {
+      padding: 30px;
+      border: 2px solid #ccc;
+      border-radius: 7px;
+      flex: 1;
+      margin-right: 20px;
+    }
+    #userForm input[type="email"] {
+      padding: 30px;
+      border: 2px solid #ccc;
+      border-radius: 7px;
+      flex: 1;
+      margin-right: 20px;
+    }
+    
+    #userForm button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background-color: gray;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
+    
+    #userForm button:hover {
+      background-color: lightgray;
+    }
+    

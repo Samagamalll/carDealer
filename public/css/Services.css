@@ -1,0 +1,139 @@
+body{
+    overflow: auto;
+    background-color: #6b6b6b;
+     
+}
+
+
+.aboutus{
+    position: relative; /* Make the container positioned relatively */
+    width: 100%; /* Ensure the container spans the full width */
+}
+
+.aboutus h1{
+  
+        position: absolute; /* Position the heading absolutely */
+        top: 25%;
+        left: 50%; /* Align the heading horizontally in the middle */
+        transform: translate(-50%, -50%); /* Center the heading precisely */
+        color: white; /* Set text color */
+        text-align: center; /* Center align the text */
+        font-size: 50px; /* Adjust the font size as needed */
+    font-weight: bold;
+    
+}
+@media(max-width:1000px){
+    .aboutus {
+        position: static;
+        
+        margin-top: 20px;
+        width: 100%;
+
+    }
+}
+.text{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+   font-size: 22px;
+    padding: 20px 10px;
+   
+    color: black;
+}
+
+
+img {
+    width: 100%; /* Adjust the width as needed */
+    height: 500px; /* Maintain the aspect ratio */
+    filter: blur(3px); /* Adjust the blur radius as needed */
+}
+.subscription-form {
+    text-align:center;
+    margin-left: 10px;
+    
+  }
+  
+  .subscription-form h3 {
+    margin-right: 20px;
+    
+    margin-left: 20px;
+    padding-bottom: 20px;
+
+  }
+  
+  #newsletter-form {
+    display: inline-block;
+  }
+  
+  #email {
+    padding: 10px;
+    margin-right: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  #email:focus {
+    outline: none;
+    border-color: beige; /* Change border color on focus */
+  }
+  
+  .subs {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .subs:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  .footerNav{
+    margin:30px 0;
+}
+.footerNav ul{
+    display: flex;
+    justify-content: center;
+    
+}
+.footerNav ul li a{
+    color: white;
+    margin:20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+    padding-right: 30px;
+}
+.footerNav ul li a:hover{
+    opacity: 1;
+}
+.footerBottom{
+    background-color: #000;
+    padding:20px;
+    text-align: center;
+}
+.footerBottom p{
+color: white;
+}
+.designer{
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+@media(max-width:700px){
+    .footerNav ul{
+        flex-direction: column;
+    }
+    .footerNav ul li{
+        width: 100%;
+        text-align: center;
+        margin: 10px;
+    }
+}

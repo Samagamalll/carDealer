@@ -1,0 +1,110 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/nav.css" rel="stylesheet">
+<link href="./css/Services.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<title>Home</title>
+
+    <script>
+        /* this function to appear and hide info options */
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var select1 = document.querySelector(".name");
+            var select2 = document.querySelector(".container1");
+
+            select1.addEventListener('click', function() {
+                if (select2.classList.contains('hidden'))                
+                    select2.classList.remove('hidden');
+                else
+                    select2.classList.add('hidden');
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var select1 = document.querySelector(".upload-button");
+            var select2 = document.querySelector(".container2");
+
+            select1.addEventListener('click', function() {
+                if (select2.classList.contains('hidden'))                
+                    select2.classList.remove('hidden');
+                else
+                    select2.classList.add('hidden');
+            });
+        });
+
+
+        /* This function hide the upload form */
+
+        document.addEventListener('DOMContentLoaded', function(){
+            var select1 = document.querySelector(".X");
+            var select2 = document.querySelector(".container2");
+
+            select1.addEventListener('click', function() {
+                select2.classList.add('hidden')
+            });
+        })
+    </script>
+    
+</head>
+<body>
+
+    <%- include("./partials/navbar.ejs") %>
+  
+<div class="aboutus">
+    
+    
+    <img src="images/aboutuscar.jpg" alt="Blurred photo">
+    <h1>About Us</h1>
+<div class="text">
+   <p><span style="color: beige" >Who Are We ?</span> <br>carDealer Auto Group established in 2024, and it is one of the newest car trading companies <br>and has passed through many stages in this field<br> to become one of the companies in the trade and sale of cars in Egypt, <br>thanks to the remarkable activity of the company during these<br> years within the Egyptian markets , as well as with the provision of flexible<br> sales service that meets all needs of<br> different customers.</p>
+ <br>
+   <p><span style="color: beige">Our Vision </span> <br>To always become your partner in choosing your car, aim to provide all brands for you,<br> and facilitate all the procedures for buying the new car.</p>
+    <br>
+    <p><span style="color: beige">Our Goals </span> <br>To make buying the car an enjoyable practical experience as well as comfortable through our<br> distinguished team that helps you and responds to all your inquiries,<br> in addition to providing different payment systems and providing installment systems with the lowest banking benefits.</p>
+</div>
+<div class="subscription-form">
+    <h3>Subscribe to Our Newsletter</h3>
+    <form id="newsletter-form">
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      <button class="subs" type="submit">Subscribe</button>
+    </form>
+  </div>
+</div>
+
+<div class="footerNav">
+    <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Offers</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Our Services</a></li>
+    </ul>
+</div>
+<div class="footerBottom">
+    <p>Copyright &copy;2024: Designed by <span class="designer">Our Team</span></p>
+
+</div>
+
+   
+    
+
+
+     
+
+
+  
+
+    
+    
+  
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

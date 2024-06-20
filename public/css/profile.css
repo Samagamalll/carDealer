@@ -1,0 +1,554 @@
+body{
+    overflow: auto;
+    background-color: #6b6b6b;
+     
+}
+
+
+                                            /* ely gay css bta3 page your channel */
+
+
+                                        
+ 
+.yourchannelbody{
+    margin-top: 1%;
+    margin-left: 5%;
+}
+
+.channel-section {
+    width: 100%;
+    margin: 0px auto;
+    padding: 15px;
+    background-color: grey;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.channel-details {
+    display: flex;
+    align-items: center;
+}
+
+.channel-details img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.channel-info h3 {
+    margin-bottom: 10px;
+}
+
+.channel-info p {
+    margin-bottom: 20px;
+}
+
+.channel-info span{
+    font-size: x-large;
+    font-weight: 800;
+}
+
+.channel-info span:hover{
+    color: red;
+}
+
+.Edit-button a {
+    text-decoration: none;
+    color: white;
+}
+
+.Edit-button, .upload-button{
+    
+    padding: 10px 20px;
+    background-color: #FF0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #CC0000;
+}
+.divideryourchannel{
+    height: 5px; /* Adjust the thickness as needed */
+    background-color: #000; /* Optional: Change the color */
+    border: none; /* Remove the default border */
+}
+.channel-section2{
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+}
+
+.clearfix{
+    clear: both;
+}
+
+
+                            /* For the Upload form  */
+
+
+
+.container2 {
+    background-color: rgba(10, 9, 9, 0.8);
+    color: white;
+    height: 600px;
+    z-index: 2000;
+    line-height: 30px;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.upload-videos{
+    padding: 15px;
+    font-size: x-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: inline-block;
+    
+}
+
+.X{
+    color: rgb(145, 132, 132);
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    
+}
+
+.X:hover{
+    color: darkgray;
+    cursor: pointer;
+}
+
+.inner-container{
+    text-align: center;
+    margin-top: 10%; 
+}
+
+.inner-container img{
+    height: 200px;
+    width: 200px;
+}
+
+.inner-container div{
+    background-color: rgb(36, 33, 33);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.inner-container p{
+    font-size: larger;
+    margin-top: 5px;
+}
+
+.inner-container button{
+    padding: 10px;
+    color: black;
+    font-weight: 600;
+    font-family: "Roboto", "Noto", sans-serif;
+    background-color: #007bff;
+    border-radius: 5px;
+}
+
+.inner-container button:hover{
+    cursor: pointer;
+}
+
+
+                            /* For channel info */
+
+
+.container3 {
+    background-color: rgb(36, 33, 33);
+    color: white;
+    height: 500px;
+    z-index: 2000;
+    line-height: 30px;
+    border-radius: 30px;
+}
+
+.container3 form{
+    padding-left: 10px;
+}
+
+.channel-info2{
+    padding: 15px;
+    font-size: x-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: inline-block;
+    
+}
+
+.ch-name{
+    width: 20%;
+    padding: 2.5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.ch-description{
+    width: 35%;
+    height: 100px;
+    padding: 0px 2.5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.save{
+    margin-top: 10px;
+    padding: 2.5px 10px;
+    color: #fff;
+    font-weight: 500;
+    font-family: "Roboto", "Noto", sans-serif;
+    background-color: #FF0000;
+    border-radius: 5px;
+}
+
+
+                                    /* Upload video */
+
+
+.container4 {
+    background-color: rgb(36, 33, 33);
+    color: white;
+    height: 450px;
+    z-index: 2000;
+    line-height: 30px;
+    border-radius: 30px;
+}
+
+.container4 form{
+    padding-left: 15px;
+}
+
+.upload-info{
+    padding: 15px;
+    font-size: x-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: inline-block;
+    
+}
+
+.video-title{
+    width: 20%;
+    padding: 2.5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.video-description{
+    width: 35%;
+    height: 100px;
+    padding: 0px 2.5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.video-url{
+    width: 20%;
+    padding: 2.5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.upload{
+    margin-top: 10px;
+    padding: 2.5px 10px;
+    color: #fff;
+    font-weight: 500;
+    font-family: "Roboto", "Noto", sans-serif;
+    background-color: #FF0000;
+    border-radius: 5px;
+}
+
+.side{
+    display: inline-block;
+}
+
+
+
+                                                    /* your channel videos  */
+main{    
+    color: black;
+    float: left;
+    z-index: 1;
+    width: 40%;
+    margin: 4px;
+    margin-left: 1%;
+    line-height: 40px;
+}
+.main2{
+    width: 45%;
+    height: 700px;
+
+
+    margin-left: 2%;
+    padding: 0;
+    display: inline-block;
+
+
+
+
+
+    
+}
+.row{
+    padding-left: 4%;
+}
+
+.box {
+    padding-bottom: 10px;
+}
+
+.video-box {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+    margin-bottom:  20px; 
+    margin-top: 15%;
+    margin-left: 5%;
+    background-color:  rgba(0, 0, 0, 0.8);
+    color: white;
+    line-height: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    
+    /* Add additional styling for video box */
+}
+
+/* background-color:  rgba(126, 118, 118, 0.8); */
+
+.video-box video {
+    border-radius: 7px;
+    background-size: cover;
+    background-position: center;
+}
+
+.video-box:hover video {
+    background-image: none;
+}
+
+.video-box .title{
+    display: block;
+    text-decoration: none;
+    padding-left: 6px ;
+    font-size: larger;
+    /* word-wrap: break-word; */
+    height: 35px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+
+.video-box .channel-name{
+    padding-left: 6px ;
+    display: block;
+}
+
+.video-box span{
+    padding-left: 6px;
+}
+
+
+
+.clearfix{
+    clear: both;
+}
+
+.delete{
+    margin-top: 5px;
+    padding: 2.5px 5px;
+    color: #fff;
+    font-weight: 500;
+    font-family: "Roboto", "Noto", sans-serif;
+    background-color: #FF0000;
+    border-radius: 7.5px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+
+@media (max-width: 576px) {
+    main{
+        width: 100%;
+        margin-left: -10px;
+    }
+    
+    .video-box{
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 2005px) {
+    main{
+        width: calc(100% - 290px);
+    }
+}
+
+
+
+@media (min-width: 200px) {
+    .X {
+        margin-left: 40%; /* Adjust margin for smaller screens */
+    }
+}
+
+@media (min-width: 438px) {
+    .X {
+        margin-left: 55%; /* Adjust margin for smaller screens */
+    }
+}
+
+@media (min-width: 767px) {
+    .X {
+        margin-left: 67%; /* Adjust margin for smaller screens */
+    }
+}
+
+@media (min-width: 992px) {
+    .X {
+        margin-left: 76%; /* Adjust margin for smaller screens */
+    }
+}
+
+@media (min-width: 1200px) {
+    .X {
+        margin-left: 80%; /* Adjust margin for smaller screens */
+    }
+}
+
+@media (max-width: 575px) {
+    .yourchannelbody{
+        margin-left: 0%;
+    }
+}
+.card {
+    width: 100%; /* Adjust the width as needed */
+    height: 75%; /* Adjust the height as needed */
+    background-color: black;
+    margin: 0 10px;
+    
+ 
+    
+    cursor: pointer;
+    position: relative;
+    color: white;
+}
+.card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #E1BEE7;
+    transform: scaleY(1);
+    transition: all 0.5s;
+    transform-origin: bottom;
+
+}
+
+.card:hover::before {
+    background-color: #8E24AA;
+    transform: scaleY(0);
+}
+
+.card:hover::before {
+    transform: scaleY(1);
+}
+.pic{
+    text-align: center;   
+}
+.userimage{
+    
+    width:250px;
+    border-radius: 50%;
+    margin-top: 2%;
+    margin-left: 2%;
+
+}
+.profileinfo{
+    /* max-width: 30%; */
+    /* font-size: xxx-large; */
+    margin-top: 2%;
+    margin-left: 2%;
+}
+.usename{
+    text-align: center;
+    font-size: x-large;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+.email{
+    margin-left: 2%;
+    margin-top: 20px;
+   
+}
+.info{
+    margin-left: 2%;
+    margin-top: 15px;
+    
+    
+}
+.buttons{
+    
+    text-align: right;
+    margin-right: 2%;
+    
+}
+.btnone{
+    border:1px solid #8E24AA ;
+    color:#8E24AA;
+    height:50px;
+    border-radius: 10%;
+    margin-top: 30px;
+    margin-right: 5px;
+}
+.btnone:hover{
+    border:1px solid #8E24AA ;
+    color:#fff;
+    height:50px;
+    background-color:#8E24AA;
+}
+
+.btntwo{
+    border:1px solid #8E24AA ;
+    color:#8E24AA;
+    height:50px;
+    border-radius: 10%;
+}
+.btntwo:hover{
+    border:1px solid #8E24AA ;
+    color:#fff;
+    height:50px;
+    background-color:#8E24AA;
+}
+.upload-button{
+    border:1px solid lightblue ;
+    color:#fff;
+    height:50px;
+    background-color:rgb(106, 191, 219);
+   position: relative;
+ margin-left: 10%;
+   margin-bottom: 60px;
+  
+}

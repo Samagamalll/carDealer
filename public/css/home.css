@@ -1,0 +1,267 @@
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1; /* Ensure it appears above the slideshow */
+  }
+  
+@media(max-width: 1000px){
+    .overlay{
+position: static;
+
+
+
+    }
+}
+@media(max-width:1000px){
+    .main-btn{
+       transform: scale(0);
+    }
+}
+
+  .text {
+    text-align: center;
+    color: white;
+    position: absolute;
+    z-index: 2;
+  }
+  
+  .text h2 {
+    font-size: 24px;
+  }
+  
+  .text p {
+    font-size: 16px;
+  }
+  
+  .text button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff; /* Adjust button color as needed */
+    color: white;
+    cursor: pointer;
+  }
+  .slide {
+    display: none;
+    transition: opacity 0.5s ease-in-out; /* Add a transition effect */
+  }
+
+
+
+.main-btn{
+    color: black;
+    background-color: lightblue;
+    text-decoration: none;
+    font-size: large;
+    display: inline-block;
+    padding: 1em 2em;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-left: 10%;
+    transition: 0.1s ease;
+}
+.main-btn:hover{
+    background-color:rgb(39, 39, 48);
+    color: white;
+    font-weight: bold;
+    transition: 200ms;
+}
+.social-icons a{
+    color: blue;
+    font-size: 1.7em;
+    padding-right: 20px;
+    margin-left: 20px;
+}
+.title{
+    display: flex;
+    justify-content:center;
+    color: white;
+    margin-bottom: 50px;
+    margin-top: 70px;
+    padding-top: 50px;
+   
+
+}
+.content{
+    display: flex;
+    justify-content:center;
+    flex-direction:row;
+    flex-wrap:wrap;
+    
+}
+.card{
+    background-color: lightgray;
+    width: 20.25em;
+    box-shadow: 0 5px 25px rgba(1 1 1/15%);
+    border-radius: 20px;
+    padding :20px;
+    margin: 30px;
+    transition: 0.9 ease;
+ 
+}
+.card:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+.icon{
+    color: blue;
+    font-size: 5em;
+    padding: 20px;
+}
+.info{
+
+   font-weight: 700;
+   margin: 10px;
+}
+.carname{
+    color: black;
+    text-decoration: none;
+    font-size: xx-large;
+
+
+}
+.carpic{
+    width: 100%;
+    height: 200px;
+    border-radius: 7%;
+}
+.content .projects{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.project-image img{
+    width: 100%;
+    height:14em;
+}
+.project-card{
+    border: 3px solid ;
+    box-shadow: 0 5px 25px rgba(1 1 1/15%);
+ border-radius: 10px;
+ padding :40px;
+ margin: 20px;
+ transition: 0.9 ease;
+ 
+}
+.project-card:hover{
+    transform: scale(1.1);
+}
+.project-cat{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.Contact{
+    background-color:  #292929;
+    border-top-left-radius: 2%;
+    border-top-right-radius: 2%;
+
+}
+.contact-card{
+   
+        background-color: white;
+        width: 19.40em;
+        height: 13em;
+        border-radius: 10px;
+        padding :20px;
+        margin: 15px;
+        transition: 0.9 ease;
+}
+    
+    .contact-card:hover{
+        transform: scale(1.1);
+    }
+    .contact-icon{
+        color: blue;
+        font-size: 3em;
+        text-align: center;
+        padding: 1px;
+    }
+    .contact-info{
+       font-size: 1em;
+       font-weight: 400;
+       margin: 10px;
+       display: flex;
+       justify-content: center;
+    }
+    .contact-content{
+        display: flex;
+        justify-content:center;
+        flex-direction:row;
+        flex-wrap:wrap;
+        
+    }
+   
+    .span{
+        font-size: 1em;
+        font-weight: 400;
+        display: flex;
+        justify-content: center;
+
+    }
+    .ref{
+display: flex;
+justify-content:center;
+}
+.paragraph1{
+    color: white;
+    margin-top: 80px;
+}
+.cardpic{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    justify-content: center;
+}
+.sendemailbtn{
+    background-color: gray;
+    border-radius: 15px;
+    height: 32px;
+    width:110px;
+  font-size: 15px;
+margin-left: 77px;
+color: black;
+ 
+
+}
+.sendemailbtn:hover{
+    background-color:lightblue;
+}
+.middle-line{
+    text-decoration: line-through;
+    text-decoration-color: red;
+}
+
+/* CSS for the slideshow container */
+.slideshow-container {
+    width: 100%; /* Ensure the slideshow spans the full width of its container */
+    max-width: 100%; /* Ensure the slideshow does not exceed the width of the viewport */
+    overflow: hidden; /* Hide overflow content on smaller screens */
+}
+
+/* CSS for individual slides */
+.slide {
+    width: 100%; /* Ensure each slide spans the full width of the slideshow container */
+}
+
+/* Optionally, you can add CSS to make the slides responsive */
+.slide img {
+    max-width: 100%; /* Ensure images within slides do not exceed the width of their container */
+    height: auto; /* Maintain aspect ratio of images */
+}

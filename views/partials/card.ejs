@@ -1,0 +1,20 @@
+<% cars.forEach(function(car) { %>
+    <div class="card">
+        <div class="icon">
+            <i class="fa-solid fa-chalkboard-user"></i>
+        </div>
+        <div class="info">
+            <a class="carname"><%= car.Model %></a>
+            <img src="<%= car.Image %>" class="carpic">
+            <P>Price: <%= parseInt(car.Price).toLocaleString() %> EGP</P>
+            <P>Color: <%= car.Color %></P>
+            <P>Engine Capacity: <%= car.Engine %> cc</P>
+            <P>Power: <%= car.Power %> bhp</P>
+            <p>Transmission: <%= car.Transmission %></p>
+            <p>Fuel: <%= car.Fuel %></p>
+        </div>
+        <div class="order">
+            <a href="/orders/<%= car.Name + '/' + car.Model + '/' + car.Price %>" class="carbtn">Order Now</a>
+        </div>
+    </div>
+  <% }); %>

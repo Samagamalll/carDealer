@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CheckOut</title>
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="/css/orders.css">
+    <script src="/js/paymentValidate.js"></script>
+</head>
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+<body>
+
+
+    <div class="container">
+
+
+        <form id="orderForm" action="/orders" method="post" onsubmit="return validateForm()">
+            <div class="orderinfo">
+                <div class="orderdetails">
+                    <h3> <%= car.Name + ' ' + car.Model %> </h3>
+                    <h3> <%= parseInt(car.Price).toLocaleString() %> EGP</h3>
+                </div>
+            </div>
+            <a onclick="window.history.back()">Go Back</a>
+            <div class="row">
+                <div class="col">
+                    <h3 class="title">Billing address</h3>
+    
+                    <div class="inputBox">
+                        <span>full name :</span>
+                        <input type="text" id="fullName" placeholder="Enter your Name">
+                        <span class="error" id="fullNameError"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>email :</span>
+                        <input type="email" id="email" placeholder="example@example.com">
+                        <span class="error" id="emailError"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>address :</span>
+                        <input type="text" id="address" placeholder="building - street - apartment">
+                        <span class="error" id="addressError"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>city :</span>
+                        <input type="text" id="city" placeholder="Cairo">
+                        <span class="error" id="cityError"></span>
+                    </div>
+    
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>state :</span>
+                            <input type="text" id="state" placeholder="Cairo">
+                            <span class="error" id="stateError"></span>
+                        </div>
+                        <div class="inputBox">
+                            <span>zip code :</span>
+                            <input type="text" id="zipCode" placeholder="123 456">
+                            <span class="error" id="zipCodeError"></span>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col">
+                    <h3 class="title">payment</h3>
+    
+                    <div class="inputBox">
+                        <span>cards accepted :</span>
+                        <img src="/images/card_img.png" alt="">
+                    </div>
+                    <div class="inputBox">
+                        <span>name on card :</span>
+                        <input type="text" id="cardName" placeholder="your name">
+                        <span class="error" id="cardNameError"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>credit card number :</span>
+                        <input type="number" id="cardNumber" placeholder="1111-2222-3333-4444">
+                        <span class="error" id="cardNumberError"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>exp month :</span>
+                        <input type="text" id="expMonth" placeholder="january">
+                        <span class="error" id="expMonthError"></span>
+                    </div>
+    
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>exp year :</span>
+                            <input type="number" id="expYear" placeholder="2030">
+                            <span class="error" id="expYearError"></span>
+                        </div>
+                        <div class="inputBox">
+                            <span>CVV :</span>
+                            <input type="text" id="cvv" placeholder="1234">
+                            <span class="error" id="cvvError"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <input type="submit" value="proceed to checkout" class="submit-btn">
+        </form>
+
+    </div>
+    
+</body>
+
+</html>

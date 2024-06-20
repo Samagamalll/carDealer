@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/nav.css" rel="stylesheet">
+<link href="./css/addcar.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<title>Home</title>
+
+</head>
+<body >
+
+<%- include("./partials/navbar.ejs") %>
+
+<div class="container">
+  <form id="carForm" action="/addcar" method="post">
+    <h2>Registration Form</h2>
+    <div class="form-group">
+      <label for="carName">Car Name</label>
+      <input type="text" id="carName" name="carName" required>
+      <span class="error" id="carNameError"></span>
+    </div>
+    <div class="form-group">
+      <label for="carModel">Car Model</label>
+      <input type="text" id="carModel" name="carModel" required>
+      <span class="error" id="carModelError"></span>
+    </div>
+    <div class="form-group">
+      <label for="carPrice">Car Price</label>
+      <input type="text" id="carPrice" name="carPrice" required>
+      <span class="error" id="carPriceError"></span>
+    </div>
+    <div class="form-group">
+      <label for="carColor">Car Color</label>
+      <input type="text" id="carColor" name="carColor" required>
+      <span class="error" id="carColorError"></span>
+    </div>
+    <div class="form-group">
+      <label for="engineCapacity">Engine Capacity</label>
+      <input type="text" id="engineCapacity" name="engineCapacity" required>
+      <span class="error" id="engineCapacityError"></span>
+    </div>
+    <div class="form-group">
+      <label for="power">Power</label>
+      <input type="text" id="power" name="power" required>
+      <span class="error" id="powerError"></span>
+    </div>
+    <div class="form-group">
+      <label for="transmission">Transmission</label>
+      <input type="text" id="transmission" name="transmission" required>
+      <span class="error" id="transmissionError"></span>
+    </div>
+    <div class="form-group">
+      <label for="fuel">Fuel</label>
+      <input type="text" id="fuel" name="fuel" required>
+      <span class="error" id="fuelError"></span>
+    </div>
+    <div class="form-group">
+      <label for="year">Year</label>
+      <input type="text" id="year" name="year" required>
+      <span class="error" id="yearError"></span>
+    </div>
+    <div class="form-group">
+      <label for="imgurl">Image URL</label>
+      <input type="text" id="imgurl" name="imgurl" required>
+      <span class="error" id="imgurlError"></span>
+    </div>
+    
+    <button type="submit">Add Car</button>
+  </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        /* this function to appear and hide info options */
+        document.getElementById("carForm").addEventListener("submit", function(event) {
+    var isValid = true;
+    var inputs = this.getElementsByTagName("input");
+    for (var i = 0; i < inputs.length; i++) {
+        var fieldName = inputs[i].name.charAt(0).toUpperCase() + inputs[i].name.slice(1);
+        if (!inputs[i].value) {
+            document.getElementById(inputs[i].id + "Error").textContent = fieldName + " is required";
+            isValid = false;
+        } else {
+            document.getElementById(inputs[i].id + "Error").textContent = "";
+            if ((inputs[i].name === "carPrice" || inputs[i].name === "engineCapacity" || inputs[i].name === "power") && (isNaN(inputs[i].value) || inputs[i].value <= 0)) {
+                document.getElementById(inputs[i].id + "Error").textContent = fieldName + " must be a valid number greater than 0";
+                isValid = false;
+            }
+            if ((inputs[i].name === "carName" || inputs[i].name === "carModel" || inputs[i].name === "carColor" || inputs[i].name === "transmission") && /\d/.test(inputs[i].value)) {
+                document.getElementById(inputs[i].id + "Error").textContent = fieldName + " should not contain numbers";
+                isValid = false;
+            }
+            if (inputs[i].name === "fuel" && !/^\d+$/.test(inputs[i].value)) {
+                document.getElementById(inputs[i].id + "Error").textContent = "Fuel must be a numeric value";
+                isValid = false;
+            }
+        }
+    }
+    if (!isValid) {
+        event.preventDefault();
+    }
+});
+
+
+        var select1 = document.querySelector(".name");
+        var select2 = document.querySelector(".container1");
+
+        select1.addEventListener('click', function() {
+            if (select2.classList.contains('hidden')) {
+                select2.classList.remove('hidden');
+            } else {
+                select2.classList.add('hidden');
+            }
+        });
+
+        var select3 = document.querySelector(".upload-button");
+        var select4 = document.querySelector(".container2");
+
+        select3.addEventListener('click', function() {
+            if (select4.classList.contains('hidden')) {
+                select4.classList.remove('hidden');
+            } else {
+                select4.classList.add('hidden');
+            }
+        });
+
+        var select5 = document.querySelector(".X");
+
+        select5.addEventListener('click', function() {
+            select4.classList.add('hidden');
+        });
+    });
+</script>
+
+</body>
+</html>
+
