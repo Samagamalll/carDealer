@@ -1,6 +1,7 @@
 const Users = require('../models/user');
 //const path = require('path');
 
+
 const Login = async (req, res) => {
     var query = { Email: req.body.email, Password: req.body.password };
     //console.log(query);
@@ -52,7 +53,6 @@ const AddUser = async (req, res) => {
 const GetUsers = async (req, res, requestedpage) => {
     let user;
     await Users.find()
-        //.sort({ createdAt: -1 })
         .then(result => {
             user = result
         })

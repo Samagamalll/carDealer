@@ -13,6 +13,7 @@ const isAuthenticated = (req, res, next) => {
     res.redirect('/');
 };
 
+
 const isAdmin = (req, res, next) => {
     //console.log("Checking")
     if (req.session.user.Type == "Admin") {
@@ -33,9 +34,7 @@ router.get("/dashboard", isAuthenticated, isAdmin, function (req, res) {
 
 router.get("/profile", isAuthenticated, function (req, res) {
     User.GetUsers(req, res, 'profile')
-   // res.render('test', { user: (req.session.user === undefined ? "" : req.session.user) });
 });
-
 
 
 router.get("/login", function (req, res) {
