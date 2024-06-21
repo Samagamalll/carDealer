@@ -1,5 +1,4 @@
 const Users = require('../models/user');
-//const path = require('path');
 
 const Login = async (req, res) => {
     let query = { Email: req.body.email, Password: req.body.password };

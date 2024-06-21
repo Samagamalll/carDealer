@@ -17,6 +17,7 @@ const GetLatestOffers = async (req, res) => {
     return [];
 };
 
+
 const AddOffer = async (req, res) => {
     const offer = new Offers({
         carID: req.body.carID,
@@ -37,6 +38,7 @@ const AddOffer = async (req, res) => {
             console.log(err);
         });
 };
+
 
 const UpdateOffer = async (req, res) => {
     try {
@@ -70,7 +72,6 @@ const UpdateOffer = async (req, res) => {
     }
     res.redirect('/offers')
 };
-
 
 module.exports = {
     GetLatestOffers,

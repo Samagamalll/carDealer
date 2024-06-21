@@ -46,7 +46,6 @@ const carSchema = new Schema({
         required: true
     }
     
- 
 }, { timestamps: true });
 
 

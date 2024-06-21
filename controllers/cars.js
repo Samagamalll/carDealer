@@ -1,6 +1,5 @@
 const Cars = require('../models/car');
 
-
 const AddCar = async (req, res) => {
     const car = new Cars({
         Name: (req.body.carName).toLowerCase(),
@@ -18,7 +17,6 @@ const AddCar = async (req, res) => {
     await car.save()
         .then(result => {
             console.log("ADDED TO DB")
-            //console.log('Car saved:', result);
             res.redirect('/');
         })
         .catch(err => {
