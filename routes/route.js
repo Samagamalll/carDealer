@@ -40,6 +40,7 @@ router.get("/login", function (req, res) {
     res.render('login', { error: null, user: (req.session.user === undefined ? "" : req.session.user) });
 });
 
+
 router.post("/login", async function (req, res) {
     try {
         console.log(`User ${req.body.email}: is logging in.`)

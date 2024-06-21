@@ -92,6 +92,7 @@ const GetUsers = async (req, res) => {
 };
 
 
+
 const UpdateUser = async (req, res) => {
     try {
         console.log(req.body.methodtype)
