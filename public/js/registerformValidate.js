@@ -59,7 +59,7 @@ function validateForm() {
         document.getElementById("password").classList.remove("input-1");
         isValid = false;
     } else {
-        var regex = /^.{1,}$/;
+        var regex = /^.{8,}$/;
         if (regex.test(password) === false) {
             printError("passwordErr", "Password should be at least 8 characters long");
             document.getElementById("password").classList.add("input-2");

@@ -31,6 +31,14 @@ const AddUser = async (req, res) => {
         if (existinguser) {
             return res.status(400).send('Email already exists');
         }
+        if(req.body.email==="")
+            return res.status(400).send('empty email')
+        else {
+            var regex = /^\S+@\S+\.\S+$/;
+            if (regex.test(req.body.email) === false) {
+                return res.status(400).send('Invalid Email');
+            }
+        }
         if (req.body.mobile === "") {
             return res.status(400).send('Emptyy Phone number');
         } else {
@@ -77,6 +85,7 @@ const GetUsers = async (req, res) => {
             })
             .catch(err => {
             });
+
         if (req.session.user.Type === "Customer") {
             return [];
         }

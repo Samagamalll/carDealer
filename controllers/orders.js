@@ -2,6 +2,9 @@ const Orders = require('../models/orders');
 
 
 const AddOrder = async (req, res) => {
+
+    // Payment validation
+
     const order = new Orders({
         BuyerEmail: (req.session.user.Email).toLowerCase(),
         Name: req.session.user.UserName,
