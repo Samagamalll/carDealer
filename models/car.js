@@ -17,6 +17,15 @@ const carSchema = new Schema({
         type: Number,
         required: true
     },
+    newPrice:{
+        type:Number,
+        required:false
+    },
+    
+    Discount: {
+        type: Number,  
+        required: false
+    },
     Color: {
         type: String,
         required: true

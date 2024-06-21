@@ -44,6 +44,56 @@ const GetCars = async (req, res) => {
     res.render(`cars/${req.params.name}`, { cars: ((car) ? car : []), user: (req.session.user === undefined ? "" : req.session.user) });
       
 };
+const GetLatestOffers = async (req, res) => {
+    var query = { Name: (req.params.name).toLowerCase() };
+    let caroffer;
+    await Cars.find(query)
+    .sort({ createdAt: -1 })
+    .then(result => {
+        //console.log(result)
+        caroffer = result
+        //console.log(result[0]._id.toString());
+     
+    })
+    .catch(err => {
+      //console.log(err);
+    });
+   // console.log(car)
+    res.render(`cars/${req.params.name}`, { cars: ((caroffer) ? caroffer : []), user: (req.session.user === undefined ? "" : req.session.user) });
+      
+};
+const UpdateOffer = async (req, res) => {
+    try {
+        console.log(req.body.methodtype)
+        if (req.body.methodtype === "update") {
+            console.log(req.body)
+            const temp = await Cars.findOneAndUpdate({ Name: req.body.carName }, {
+                Model: req.body.carModel,
+                Price: req.body.carPrice,
+                newPrice:req.body.NewPrice,
+                Discount: req.body.Discount,
+                Image: req.body.imgurl
+            });
+            if (!temp) {
+                return res.status(404).send('Car not found');
+            }
+            
+        }
+        else if (req.body.methodtype === "delete") {
+            //console.log("DELETING SUCCESS")
+
+            const temp = await Cars.findOneAndDelete({ Name: req.body.carName })
+            if (!temp) {
+                return res.status(404).send('Car not found');
+            }
+        }
+    }
+    catch (error) {
+        res.status(500).send('Error');
+    }
+    res.redirect('/Cars')
+};
+
 const UpdateCar = async (req, res) => {
     try {
         console.log(req.body.methodtype)
@@ -82,5 +132,8 @@ const UpdateCar = async (req, res) => {
 
 module.exports = {
     AddCar,
-    GetCars
+    GetCars,
+    GetLatestOffers,
+    UpdateCar,
+    UpdateOffer
 };

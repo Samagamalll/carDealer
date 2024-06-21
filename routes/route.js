@@ -37,6 +37,7 @@ router.get("/profile", isAuthenticated, function (req, res) {
 });
 
 
+
 router.get("/login", function (req, res) {
     if (req.session.user !== undefined) {
         return res.redirect('/'); // Redirect to homepage if user is logged in
@@ -87,7 +88,13 @@ router.post("/updateprofile/:id", function (req, res) {
     //console.log(req.body)
     // res.redirect('/')
 });
+router.post("/UpdateOffer/:id", function (req, res) {
+    //res.render('login');
+    Car.UpdateOffer(req, res);
 
+    //console.log(req.body)
+    // res.redirect('/')
+});
 
 
 router.get("/addcar", isAuthenticated, isAdmin, function (req, res) {
@@ -129,6 +136,10 @@ router.get("/services", function (req, res) {
 
 router.get("/cars/:name", function (req, res) {
     Car.GetCars(req, res);
+    //res.render(`cars/${req.params.name}`, { user: (req.session.user === undefined ? "" : req.session.user) });
+});
+router.get("/offers/:carName", function (req, res) {
+    Car.GetLatestOffers(req, res);
     //res.render(`cars/${req.params.name}`, { user: (req.session.user === undefined ? "" : req.session.user) });
 });
 
