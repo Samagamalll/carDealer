@@ -32,21 +32,46 @@ const AddUser = async (req, res) => {
             return res.status(400).send('Email already exists');
         }
         if(req.body.email==="")
-            return res.status(400).send('empty email')
+            return res.status(400).send('Email cannot be empty')
         else {
             var regex = /^\S+@\S+\.\S+$/;
             if (regex.test(req.body.email) === false) {
                 return res.status(400).send('Invalid Email');
             }
         }
+
+        if (req.body.UserName === "") {
+            return res.status(400).send('Username cannot be empty');
+        } else {
+            var regex = /^[a-zA-Z\s]+$/;
+            if (regex.test(req.body.UserName) === false) {
+                return res.status(400).send('Username cannot include numbers');
+            }
+        }
+
         if (req.body.mobile === "") {
-            return res.status(400).send('Emptyy Phone number');
+            return res.status(400).send('Mobile number cannor be empty');
         } else {
             var regex = /^[0-9]{11}$/;
             if (regex.test(req.body.mobile) === false) {
-                return res.status(400).send('Mobile number less than 11 characters');
+                return res.status(400).send('Mobile number must be 11 numbers');
             }
         }
+        if (req.body.password === "") {
+            return res.status(400).send('Password cannot be Empty');
+        } else {
+            var regex = /^.{8,}$/;
+            if (regex.test(req.body.password) === false) {
+                return res.status(400).send('Pass word must be atleast 8 characters');
+            }
+        }
+        if (req.body.gender === "") {
+            return res.status(400).send('Gender cannot be empty');
+        } 
+        // if (req.body.Type !== "Admin" && eq.body.Type !== "Customer") {
+        //     return res.status(400).send('User type invalid');
+        // } 
+
 
         const user = new Users({
             Email: req.body.email,
@@ -54,7 +79,7 @@ const AddUser = async (req, res) => {
             Password: req.body.password,
             Mobile: req.body.mobile,
             Image: 'imagepath',
-            Type: 'Admin',
+            Type: 'Customer',
             Gender: req.body.gender
         });
 
@@ -106,6 +131,28 @@ const UpdateUser = async (req, res) => {
         console.log(req.body.methodtype)
         if (req.body.methodtype === "update") {
             console.log(req.body)
+            if (req.body.username === "") {
+                return res.status(400).send('Username cannot be empty');
+            } else {
+                var regex = /^[a-zA-Z\s]+$/;
+                if (regex.test(req.body.UserName) === false) {
+                    return res.status(400).send('Username cannot include numbers');
+                }
+            }
+            if (req.body.mobile === "") {
+                return res.status(400).send('Mobile number cannor be empty');
+            } else {
+                var regex = /^[0-9]{11}$/;
+                if (regex.test(req.body.mobile) === false) {
+                    return res.status(400).send('Mobile number must be 11 numbers');
+                }
+            }
+            if (req.body.gender === "") {
+                return res.status(400).send('Gender cannot be empty');
+            } 
+            if (req.body.type !== "Admin" && req.body.type !== "Customer") {
+                return res.status(400).send('User type invalid');
+            } 
             const temp = await Users.findOneAndUpdate({ Email: req.body.email }, {
                 UserName: req.body.username,
                 Mobile: req.body.mobile,

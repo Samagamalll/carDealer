@@ -19,24 +19,50 @@ const GetLatestOffers = async (req, res) => {
 
 
 const AddOffer = async (req, res) => {
-    const offer = new Offers({
-        carID: req.body.carID,
-        Name: (req.body.carName).toLowerCase(),
-        Model: req.body.carModel,
-        Price: req.body.carPrice,
-        Discount: req.body.carDiscount,
-        Image: req.body.imgurl
-    })
-    console.log(offer);
-    await offer.save()
-        .then(result => {
-            console.log("ADDED Offer TO DB")
-            res.redirect('/');
+
+    try {
+        if (req.body.carName === "") {
+            return res.status(404).send('Car name cannot be empty');
+        }
+        if (req.body.carModel === "") {
+            return res.status(404).send('Car Model cannot be empty');
+        }
+        if (req.body.carDiscount === "") {
+            return res.status(404).send('Discount cannot be empty');
+        } else if (req.body.carDiscount < 0 || req.body.carDiscount > 100) {
+            return res.status(404).send('Discount rate is invalid');
+        }
+        if (!req.body.carPrice) {
+            return res.status(404).send('Car Price Cannot be empty');
+        } else if (req.body.carPrice <= 0) {
+            return res.status(404).send("Car Price is invalid");
+        }
+        if (req.body.imgurl = "") {
+            return res.status(404).send('Image url Cannot be empty');
+        }
+
+        const offer = new Offers({
+            carID: req.body.carID,
+            Name: (req.body.carName).toLowerCase(),
+            Model: req.body.carModel,
+            Price: req.body.carPrice,
+            Discount: req.body.carDiscount,
+            Image: req.body.imgurl
         })
-        .catch(err => {
-            console.log("FAILED TO SAVE")
-            console.log(err);
-        });
+        console.log(offer);
+        await offer.save()
+            .then(result => {
+                console.log("ADDED Offer TO DB")
+                res.redirect('/');
+            })
+            .catch(err => {
+                console.log("FAILED TO SAVE")
+                console.log(err);
+            });
+    }
+    catch (error) {
+        return res.status(500).send('Error Adding Offer');
+    }
 };
 
 
@@ -44,7 +70,25 @@ const UpdateOffer = async (req, res) => {
     try {
         console.log(req.body.methodtype)
         if (req.body.methodtype === "update") {
-            console.log(req.body)
+            if (req.body.carName === "") {
+                return res.status(404).send('Car name cannot be empty');
+            }
+            if (req.body.carModel === "") {
+                return res.status(404).send('Car Model cannot be empty');
+            }
+            if (req.body.Discount === "") {
+                return res.status(404).send('Discount cannot be empty');
+            } else if (req.body.Discount < 0 || req.body.Discount > 100) {
+                return res.status(404).send('Discount rate is invalid');
+            }
+            if (!req.body.OldPrice) {
+                return res.status(404).send('Car Price Cannot be empty');
+            } else if (req.body.OldPrice <= 0) {
+                return res.status(404).send("Car Price is invalid");
+            }
+            if (req.body.imgurl = "") {
+                return res.status(404).send('Image url Cannot be empty');
+            }
             const temp = await Offers.findOneAndUpdate({ carID: req.body.carID }, {
                 Name: req.body.carName,
                 Model: req.body.carModel,
@@ -68,7 +112,7 @@ const UpdateOffer = async (req, res) => {
     }
     catch (error) {
         console.log("Offer error")
-        return res.status(500).send('Error');
+        return res.status(500).send('Error Updating or deleting offer');
     }
     res.redirect('/offers')
 };

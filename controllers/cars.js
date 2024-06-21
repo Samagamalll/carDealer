@@ -1,28 +1,67 @@
 const Cars = require('../models/car');
 
 const AddCar = async (req, res) => {
-    const car = new Cars({
-        Name: (req.body.carName).toLowerCase(),
-        Model: req.body.carModel,
-        Price: req.body.carPrice,
-        Color: req.body.carColor,
-        Engine: req.body.engineCapacity,
-        Power: req.body.power,
-        Transmission: req.body.transmission,
-        Fuel: req.body.fuel,
-        Year: req.body.year,
-        Image: req.body.imgurl
-    })
-    console.log(car);
-    await car.save()
-        .then(result => {
-            console.log("ADDED TO DB")
-            res.redirect('/');
+
+    try {
+        if (req.body.carName === "") {
+            return res.status(404).send('Car name cannot be empty');
+        }
+        if (req.body.carModel === "") {
+            return res.status(404).send('Car Model cannot be empty');
+        }
+        if (!req.body.carPrice) {
+            return res.status(404).send('Car Price Cannot be empty');
+        } else if (req.body.carPrice <= 0) {
+            return res.status(404).send("Car Price is invalid");
+        }
+        if (req.body.imgurl = "") {
+            return res.status(404).send('Image url Cannot be empty');
+        }
+        if (req.body.carColor = "") {
+            return res.status(404).send('Color Cannot be empty');
+        }
+        if (req.body.engineCapacity = "") {
+            return res.status(404).send('Engine Capacity Cannot be empty');
+        }
+        if (req.body.power = "") {
+            return res.status(404).send('Power Cannot be empty');
+        }
+        if (req.body.transmission = "") {
+            return res.status(404).send('Transmission Cannot be empty');
+        }
+        if (req.body.fuel = "") {
+            return res.status(404).send('Fuel Cannot be empty');
+        }
+        if (req.body.year = "") {
+            return res.status(404).send('Year Cannot be empty');
+        }
+
+        const car = new Cars({
+            Name: (req.body.carName).toLowerCase(),
+            Model: req.body.carModel,
+            Price: req.body.carPrice,
+            Color: req.body.carColor,
+            Engine: req.body.engineCapacity,
+            Power: req.body.power,
+            Transmission: req.body.transmission,
+            Fuel: req.body.fuel,
+            Year: req.body.year,
+            Image: req.body.imgurl
         })
-        .catch(err => {
-            console.log("FAILED TO SAVE")
-            console.log(err);
-        });
+        console.log(car);
+        await car.save()
+            .then(result => {
+                console.log("ADDED TO DB")
+                res.redirect('/');
+            })
+            .catch(err => {
+                console.log("FAILED TO SAVE")
+                console.log(err);
+            });
+    }
+    catch (error) {
+        res.status(500).send('Error Adding Car');
+    }
 };
 
 
@@ -53,7 +92,38 @@ const UpdateCar = async (req, res) => {
     try {
         console.log(req.body.methodtype)
         if (req.body.methodtype === "update") {
-            console.log(req.body)
+            if (req.body.carName === "") {
+                return res.status(404).send('Car name cannot be empty');
+            }
+            if (req.body.carModel === "") {
+                return res.status(404).send('Car Model cannot be empty');
+            }
+            if (!req.body.carPrice) {
+                return res.status(404).send('Car Price Cannot be empty');
+            } else if (req.body.carPrice <= 0) {
+                return res.status(404).send("Car Price is invalid");
+            }
+            if (req.body.imgurl = "") {
+                return res.status(404).send('Image url Cannot be empty');
+            }
+            if (req.body.carColor = "") {
+                return res.status(404).send('Color Cannot be empty');
+            }
+            if (req.body.carEngine = "") {
+                return res.status(404).send('Engine Capacity Cannot be empty');
+            }
+            if (req.body.carPower = "") {
+                return res.status(404).send('Power Cannot be empty');
+            }
+            if (req.body.carTransmission = "") {
+                return res.status(404).send('Transmission Cannot be empty');
+            }
+            if (req.body.carFuel = "") {
+                return res.status(404).send('Fuel Cannot be empty');
+            }
+            if (req.body.carYear = "") {
+                return res.status(404).send('Year Cannot be empty');
+            }
             const temp = await Cars.findOneAndUpdate({ _id: req.body.carID }, {
                 Name: req.body.carName,
                 Model: req.body.carModel,
@@ -79,7 +149,7 @@ const UpdateCar = async (req, res) => {
         }
     }
     catch (error) {
-        res.status(500).send('Error');
+        res.status(500).send('Error Updating Car');
     }
     res.redirect('/carsedit')
 };

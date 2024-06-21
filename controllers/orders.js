@@ -3,8 +3,11 @@ const Orders = require('../models/orders');
 
 const AddOrder = async (req, res) => {
 
-    // Payment validation
-
+    if (req.body.Price = "") {
+        return res.status(404).send('Car Price Cannot be empty');
+    } else if (req.body.Price < 0) {
+        return res.status(404).send("Car Price is invalid");
+    }
     const order = new Orders({
         BuyerEmail: (req.session.user.Email).toLowerCase(),
         Name: req.session.user.UserName,

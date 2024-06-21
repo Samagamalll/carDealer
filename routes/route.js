@@ -76,7 +76,7 @@ router.post("/register", function (req, res) {
     // res.redirect('/')
 });
 
-router.post("/updateprofile", function (req, res) {
+router.post("/updateprofile", isAuthenticated, function (req, res) {
     //res.render('login');
     User.UpdateUser(req, res);
 });
@@ -104,22 +104,22 @@ router.get("/cars/:name", async function (req, res) {
     res.render(`cars/${req.params.name}`, { cars: car, user: (req.session.user === undefined ? "" : req.session.user) });
 });
 
-router.get("/carsedit", async function (req, res) {
+router.get("/carsedit", isAuthenticated, isAdmin, async function (req, res) {
     var car = await Car.GetCars(req, res);
     res.render('carsedit', { cars: car, user: (req.session.user === undefined ? "" : req.session.user) });
 
 });
 
-router.post("/carsedit", function (req, res) {
+router.post("/carsedit", isAuthenticated, isAdmin, function (req, res) {
     Car.UpdateCar(req, res)
 });
 
 
-router.get("/addoffer", function (req, res) {
+router.get("/addoffer", isAuthenticated, isAdmin, function (req, res) {
     res.render('addoffer', { user: (req.session.user === undefined ? "" : req.session.user) });
 });
 
-router.post("/addoffer", function (req, res) {
+router.post("/addoffer", isAuthenticated, isAdmin, function (req, res) {
     Offer.AddOffer(req, res);
 });
 
@@ -128,7 +128,7 @@ router.get("/offers", async function (req, res) {
     res.render('offers', { offers: offers, user: (req.session.user === undefined ? "" : req.session.user) });
 });
 
-router.post("/offers", function (req, res) {
+router.post("/offers", isAuthenticated, isAdmin, function (req, res) {
     Offer.UpdateOffer(req, res);
     //res.render(`cars/${req.params.name}`, { user: (req.session.user === undefined ? "" : req.session.user) });
 });
