@@ -54,7 +54,7 @@ const AddUser = async (req, res) => {
             Password: req.body.password,
             Mobile: req.body.mobile,
             Image: 'imagepath',
-            Type: 'Admin',
+            Type: 'Customer',
             Gender: req.body.gender
         });
 
