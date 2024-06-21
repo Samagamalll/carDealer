@@ -27,10 +27,9 @@ const offersSchema = new Schema({
         type: String,
         required: true
     }
-    
-    
-    
+  
 }, { timestamps: true });
 
-const CarsOffers = mongoose.model('CarsOffers', carSchema);
-module.exports = CarsOffers;
+
+const Offers = mongoose.model('Offer', offersSchema);
+module.exports = Offers;

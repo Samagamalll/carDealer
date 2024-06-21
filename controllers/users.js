@@ -1,12 +1,11 @@
 const Users = require('../models/user');
 //const path = require('path');
 
-
 const Login = async (req, res) => {
-    var query = { Email: req.body.email, Password: req.body.password };
-    //console.log(query);
-    await Users.findOne(query)
-        .then(result => {
+    let query = { Email: req.body.email, Password: req.body.password };
+    try {
+        const result = await Users.findOne(query);
+        if (result) {
             req.session.user = {
                 Email: result.Email,
                 UserName: result.UserName,
@@ -16,52 +15,79 @@ const Login = async (req, res) => {
                 Gender: result.Gender,
                 createdAt: result.createdAt
             };
-            if (result !== null) {
-                //console.log(req.session.user)
-                return res.render('home', { user: req.session.user });
-            }
-        })
-        .catch(err => {
-            res.render('login', { error: 'Wrong email or Password', user: (req.session.user === undefined ? "" : req.session.user) });
-            //console.log(err);
-        });
-}
-
-
-const AddUser = async (req, res) => {
-
-    const user = new Users({
-        Email: req.body.email,
-        UserName: req.body.name,
-        Password: req.body.password,
-        Mobile: req.body.mobile,
-        Image: 'imagepath',
-        Type: 'Customer',
-        Gender: req.body.gender
-    })
-    console.log(user);
-    await user.save()
-        .then(result => {
-            res.redirect('/');
-        })
-        .catch(err => {
-            console.log(err);
-        });
+            return true;
+        } else {
+            return false;
+        }
+    } catch (err) {
+        console.log(err);
+        return false; 
+    }
 };
 
 
-const GetUsers = async (req, res, requestedpage) => {
-    let user;
-    await Users.find()
-        .then(result => {
-            user = result
-        })
-        .catch(err => {
+const AddUser = async (req, res) => {
+    try {
+        const existinguser = await Users.findOne({ Email: req.body.email });
+        if (existinguser) {
+            return res.status(400).send('Email already exists');
+        }
+        if (req.body.mobile === "") {
+            return res.status(400).send('Emptyy Phone number');
+        } else {
+            var regex = /^[0-9]{11}$/;
+            if (regex.test(req.body.mobile) === false) {
+                return res.status(400).send('Mobile number less than 11 characters');
+            }
+        }
+
+        const user = new Users({
+            Email: req.body.email,
+            UserName: req.body.name,
+            Password: req.body.password,
+            Mobile: req.body.mobile,
+            Image: 'imagepath',
+            Type: 'Admin',
+            Gender: req.body.gender
         });
-    if (req.session.user.Type === "Customer") {
-        return res.render(requestedpage, { users: [], user: (req.session.user === undefined ? "" : req.session.user) });
+
+        await user.save()
+            .then(result => {
+
+                console.log(savedUser);
+                res.redirect('/');
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Server Error');
     }
-    res.render(requestedpage, { users: ((user) ? user : []), user: (req.session.user === undefined ? "" : req.session.user) });
+};
+
+
+const GetUsers = async (req, res) => {
+    try {
+        let user;
+        await Users.find()
+            //.sort({ createdAt: -1 })
+            .then(result => {
+                user = result
+            })
+            .catch(err => {
+            });
+        if (req.session.user.Type === "Customer") {
+            return [];
+        }
+        return user;
+    }
+    catch (error) {
+        res.status(500).send('Get Users Error');
+        return [];
+    }
+    //res.render(requestedpage, { users: ((user) ? user : []), user: (req.session.user === undefined ? "" : req.session.user) });
 
 };
 

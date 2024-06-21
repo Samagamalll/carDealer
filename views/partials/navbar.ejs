@@ -38,7 +38,7 @@
 
             <% if (user.Type == "Admin") { %>
                 <li class="nav-item">
-                    <a class="nav-link" href="/addcar">Add Car</a>
+                    <a class="nav-link" href="/carsedit">View Cars</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/dashboard">Dashboard</a>
@@ -47,7 +47,7 @@
                     <a class="nav-link" href="/profile">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Car">Car Offers</a>
+                    <a class="nav-link" href="/offers">Car Offers</a>
                 </li>
             <% } %>  
             </ul>
@@ -58,6 +58,7 @@
                     <button class="button" type="submit">Search</button>
                 </form>
             </div>
+            
 
                 <h5 class="user_name"> <%= ((user) ? user.UserName: "") %> </h5>
                 <div class="name mt-2  mt-lg-0">

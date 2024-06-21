@@ -20,6 +20,7 @@ const AddOrder = async (req, res) => {
         });
 };
 
+
 const GetAllOrders = async (req, res) => {
     let query = {};
     if(req.session.user.Type === "Customer")

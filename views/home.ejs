@@ -40,9 +40,7 @@
             });
         });
 
-
         /* This function hide the upload form */
-
         document.addEventListener('DOMContentLoaded', function () {
             var select1 = document.querySelector(".X");
             var select2 = document.querySelector(".container2");
@@ -105,8 +103,10 @@
         <section class="services" id="services">
             <h2 class="title">𝒍𝒂𝒕𝒆𝒔𝒕 𝒐𝒇𝒇𝒆𝒓𝒔</h2>
             <div class="content">
-              
-                <div class="card">
+
+                <%- include("./partials/cardOffers.ejs") %>
+
+                    <!-- <div class="card">
 
                     <div class="info">
                         <a class="carname">bmw-cs</a>
@@ -119,66 +119,7 @@
                         <a href="/cars/bmw" class="carbtn">show details</a>
                     </div>
 
-                </div>
-
-                <div class="card">
-
-                    <div class="info">
-                        <a class="carname">Kia-Cerato-GT</a>
-                        <img src="./images/kia-carens-indonesia-1-1692597699.jpeg" class="carpic">
-                        <P>old price: <span class="middle-line">4,000,000</span>EGP </P>
-                        <P>new price:3,200,000 EGP</P>
-                        <P><span style="color: rgba(206, 2, 2, 0.664)">discount:20%</span></P>
-                    </div>
-                    <div class="order">
-                        <a href="/cars/kia" class="carbtn">show details</a>
-                    </div>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="info">
-                        <a class="carname">Porsche-GTS</a>
-                        <img src="./images/2020-Porsche-Macan-GTS-1.jpg" class="carpic">
-                        <P>Old price: <span class="middle-line">12,890,750</span>EGP </P>
-                        <P>New price:9,023,525 EGP</P>
-                        <P><span style="color: rgba(206, 2, 2, 0.664)">Discount:30%</span></P>
-                    </div>
-                    <div class="order">
-                        <a href="/cars/porsche" class="carbtn">Show details</a>
-                    </div>
-
-                </div>
-                
-                <div class="card">
-
-                    <div class="info">
-                        <a class="carname">skoda-KODIAQ</a>
-                        <img src="./images/skoda.jpg" class="carpic">
-                        <P>old price: <span class="middle-line">1,040,000</span>EGP </P>
-                        <P>new price:676,000 EGP</P>
-                        <P><span style="color: rgba(230, 2, 2, 0.664)">discount:45%</span></P>
-                    </div>
-                    <div class="order">
-                        <a href="/cars/skoda" class="carbtn">show details</a>
-                    </div>
-
-                </div>
-                <div class="card">
-
-                    <div class="info">
-                        <a class="carname">volkswagen-passat</a>
-                        <img src="./images/vvvv.png" class="carpic">
-                        <P>old price: <span class="middle-line">1,600,000</span>EGP </P>
-                        <P>new price:1,440,000 EGP</P>
-                        <P><span style="color: rgba(230, 6, 6, 0.733)">discount:10%</span></P>
-                    </div>
-                    <div class="order">
-                        <a href="/cars/vw" class="carbtn">show details</a>
-                    </div>
-
-                </div>
+                </div> -->
 
             </div>
 
@@ -190,7 +131,6 @@
 
         <span class="clearfix"></span>
 
-        </div>
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

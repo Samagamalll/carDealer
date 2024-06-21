@@ -1,5 +1,6 @@
 const Cars = require('../models/car');
 
+
 const AddCar = async (req, res) => {
     const car = new Cars({
         Name: (req.body.carName).toLowerCase(),
@@ -26,72 +27,28 @@ const AddCar = async (req, res) => {
         });
 };
 
+
 const GetCars = async (req, res) => {
-    var query = { Name: (req.params.name).toLowerCase() };
+    let query = {};
+    if (req.params.name !== undefined) {
+        query = { Name: (req.params.name).toLowerCase() };
+    }
     let car;
     await Cars.find(query)
-    .sort({ createdAt: -1 })
-    .then(result => {
-        //console.log(result)
-        car = result
-        //console.log(result[0]._id.toString());
-     
-    })
-    .catch(err => {
-      //console.log(err);
-    });
-   // console.log(car)
-    res.render(`cars/${req.params.name}`, { cars: ((car) ? car : []), user: (req.session.user === undefined ? "" : req.session.user) });
-      
-};
-const GetLatestOffers = async (req, res) => {
-    var query = { Name: (req.params.name).toLowerCase() };
-    let caroffer;
-    await Cars.find(query)
-    .sort({ createdAt: -1 })
-    .then(result => {
-        //console.log(result)
-        caroffer = result
-        //console.log(result[0]._id.toString());
-     
-    })
-    .catch(err => {
-      //console.log(err);
-    });
-   // console.log(car)
-    res.render(`cars/${req.params.name}`, { cars: ((caroffer) ? caroffer : []), user: (req.session.user === undefined ? "" : req.session.user) });
-      
-};
-const UpdateOffer = async (req, res) => {
-    try {
-        console.log(req.body.methodtype)
-        if (req.body.methodtype === "update") {
-            console.log(req.body)
-            const temp = await Cars.findOneAndUpdate({ Name: req.body.carName }, {
-                Model: req.body.carModel,
-                Price: req.body.carPrice,
-                newPrice:req.body.NewPrice,
-                Discount: req.body.Discount,
-                Image: req.body.imgurl
-            });
-            if (!temp) {
-                return res.status(404).send('Car not found');
-            }
-            
-        }
-        else if (req.body.methodtype === "delete") {
-            //console.log("DELETING SUCCESS")
+        .sort({ createdAt: -1 })
+        .then(result => {
+            car = result
+        })
+        .catch(err => {
+            console.log("Cars not found")
+            return [];
 
-            const temp = await Cars.findOneAndDelete({ Name: req.body.carName })
-            if (!temp) {
-                return res.status(404).send('Car not found');
-            }
-        }
+        });
+    if (car) {
+        return car;
     }
-    catch (error) {
-        res.status(500).send('Error');
-    }
-    res.redirect('/Cars')
+    return [];
+    // console.log(car) 
 };
 
 const UpdateCar = async (req, res) => {
@@ -99,25 +56,24 @@ const UpdateCar = async (req, res) => {
         console.log(req.body.methodtype)
         if (req.body.methodtype === "update") {
             console.log(req.body)
-            const temp = await Cars.findOneAndUpdate({ Name: req.body.carName }, {
+            const temp = await Cars.findOneAndUpdate({ _id: req.body.carID }, {
+                Name: req.body.carName,
                 Model: req.body.carModel,
                 Price: req.body.carPrice,
                 Color: req.body.carColor,
-                Engine: req.body.engineCapacity,
-                Power: req.body.power,
-                Transmission: req.body.transmission,
-                Fuel: req.body.fuel,
-                Year: req.body.year,
+                Engine: req.body.carEngine,
+                Power: req.body.carPower,
+                Transmission: req.body.carTransmission,
+                Fuel: req.body.carFuel,
+                Year: req.body.carYear,
                 Image: req.body.imgurl
             });
             if (!temp) {
-                return res.status(404).send('Car not found');
+                return res.status(404).send('Car not found to edit');
             }
-            
+
         }
         else if (req.body.methodtype === "delete") {
-            //console.log("DELETING SUCCESS")
-
             const temp = await Cars.findOneAndDelete({ Name: req.body.carName })
             if (!temp) {
                 return res.status(404).send('Car not found');
@@ -127,13 +83,11 @@ const UpdateCar = async (req, res) => {
     catch (error) {
         res.status(500).send('Error');
     }
-    res.redirect('/Cars')
+    res.redirect('/carsedit')
 };
 
 module.exports = {
     AddCar,
     GetCars,
-    GetLatestOffers,
-    UpdateCar,
-    UpdateOffer
+    UpdateCar
 };

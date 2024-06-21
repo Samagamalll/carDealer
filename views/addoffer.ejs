@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Offer</title>
+    <link rel="stylesheet" href="/css/styles_register.css">
+    <!-- <script src="/js/registerformValidate.js"></script> -->
+</head>
+
+<body>
+    <form action="/addoffer" id="myform" method="post" name="Form" onsubmit="return validateForm()">
+        <a href="/">Go Back</a>
+        <h2>Add Homepage Offer</h2>
+
+        <div class="box">
+            <label>Car ID</label>
+            <input type="text" name="carID" id="carID">
+            <div class="error" id="carIDErr"></div>
+        </div>
+
+        <div class="box">
+            <label>Car Name</label>
+            <input type="text" name="carName" id="carName">
+            <div class="error" id="carNameErr"></div>
+        </div>
+        <div class="box">
+            <label>Car Model</label>
+            <input type="text" name="carModel" id="carModel">
+            <div class="error" id="carModelErr"></div>
+        </div>
+        <div class="box">
+            <label>Price</label>
+            <input type="text" name="carPrice" id="carPrice">
+            <div class="error" id="carPriceErr"></div>
+        </div>
+        <div class="box">
+            <label>Discount</label>
+            <input type="text" name="carDiscount" id="carDiscount">
+            <div class="error" id="carDiscountErr"></div>
+        </div>
+        <div class="box">
+            <label>Image URL</label>
+            <input type="text" name="imgurl" id="imgurl">
+            <div class="error" id="imgurlErr"></div>
+        </div>
+
+        <div class="box">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+
+</body>
+
+</html>

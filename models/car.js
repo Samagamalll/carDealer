@@ -17,15 +17,6 @@ const carSchema = new Schema({
         type: Number,
         required: true
     },
-    newPrice:{
-        type:Number,
-        required:false
-    },
-    
-    Discount: {
-        type: Number,  
-        required: false
-    },
     Color: {
         type: String,
         required: true
@@ -55,12 +46,9 @@ const carSchema = new Schema({
         required: true
     }
     
-    
-    
-    
-    
-    
+ 
 }, { timestamps: true });
+
 
 const Cars = mongoose.model('Cars', carSchema);
 module.exports = Cars;
