@@ -28,8 +28,6 @@ router.get("/:name/:model/:price", isAuthenticated, function (req, res) {
 router.post("/", isAuthenticated, function (req, res) {
     //res.render('orders', { user: (req.session.user === undefined ? "" : req.session.user) });
     Order.AddOrder(req, res);
-
-    //res.redirect('/')
 });
 
 module.exports = router;

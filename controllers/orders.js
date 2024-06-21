@@ -20,7 +20,6 @@ const AddOrder = async (req, res) => {
         });
 };
 
-
 const GetAllOrders = async (req, res) => {
     let query = {};
     if(req.session.user.Type === "Customer")
@@ -36,11 +35,9 @@ const GetAllOrders = async (req, res) => {
     .catch(err => {
         console.log(err);
     });
-   // console.log(order)
     res.render('orderslist', { orders: ((order) ? order : []), user: (req.session.user === undefined ? "" : req.session.user) });
       
 };
-
 
 
 module.exports = {
