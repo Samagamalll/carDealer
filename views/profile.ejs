@@ -242,7 +242,76 @@
 </div>
 
 
-   
+    <main>
+
+
+        <div class="row">
+            <?php
+                require_once('video-retrieve.php');
+            ?>
+
+
+                <!-- Add more video boxes as needed -->
+        </div>
+
+
+
+        <!-- Upload Form -->
+
+        <div class="container-sm container2 hidden centered">
+                <div class="upload-videos">Upload Cars</div>
+                <div id="X1" class="X">✕</div>
+                <span class="clear"></span>
+                <hr>
+                <div class="inner-container">
+                    <div>
+                        <a href="#">
+                            <img src="images/pngtree-file-upload-icon-image_1344393-removebg-preview.png" alt="Photo can't load.">
+                        </a>
+                    </div>
+                    <p>Upload your Car File</p>
+                    <button class="selectFiles">Select Files</button>
+                </div>
+        </div>
+
+
+        
+        <!-- Upload video -->
+
+        <div class="container-sm container4 hidden centered">
+            <div class="upload-info">Upload Car</div>
+            <div class="X" id="X3">✕</div>
+            <span class="clear"></span>
+            <hr>
+            <div>
+        
+                <form method="POST" action="yourchannel.php" enctype="multipart/form-data">
+                    <label>Video title</label>
+                    <br>
+                    <input class="video-title" type="text" name="video_title" placeholder="(:" required>
+                    <br>
+                    <label>Video description</label>
+                    <br>
+                    <textarea class="video-description" type="text" name="video_description" placeholder="(:" required></textarea>
+                    <br>
+                    <label>Video URL</label>
+                    <br>
+                    <input class="video-url" type="file" name="file" required>
+                    <br>
+                    <button class="upload" name="upload" type="submit">Upload</button>
+                </form>
+
+            </div>
+        </div>
+
+
+
+        <div class="channel-section2 <?php echo $hiddenClass; if($hideButtons) echo 'hidden';?>">
+            <p>Upload at home or on the go.</p> <p>Upload content from any device</p> <p>All your videos make will appear here.</p>
+            <button class="upload-button">Upload</button>
+        </div>
+                
+    </main>
     <span class="clearfix"></span>
 
     
