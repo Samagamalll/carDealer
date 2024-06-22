@@ -386,7 +386,7 @@ main{
     top: 0;
     width: 4px;
     height: 100%;
-    background-color: #E1BEE7;
+    background-color: #171717;
     transform: scaleY(1);
     transition: all 0.5s;
     transform-origin: bottom;
@@ -394,7 +394,7 @@ main{
 }
 
 .card:hover::before {
-    background-color: #8E24AA;
+    background-color: #7e2323;
     transform: scaleY(0);
 }
 
@@ -442,18 +442,18 @@ main{
     
 }
 .btnone{
-    border:1px solid #8E24AA ;
-    color:#8E24AA;
+    border:1px solid  ;
+    color:#f5f5f5;
     height:50px;
     border-radius: 10%;
     margin-top: 30px;
     margin-right: 5px;
 }
 .btnone:hover{
-    border:1px solid #8E24AA ;
+    border:1px solid #ac2424 ;
     color:#fff;
     height:50px;
-    background-color:#8E24AA;
+    background-color:#000000;
 }
 
 .btntwo{
