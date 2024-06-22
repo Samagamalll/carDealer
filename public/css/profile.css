@@ -61,7 +61,7 @@ body{
 .Edit-button, .upload-button{
     
     padding: 10px 20px;
-    background-color: #FF0000;
+    background-color: #120f0f;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -108,13 +108,7 @@ button:hover {
 }
 
 
-.upload-videos{
-    padding: 15px;
-    font-size: x-large;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    display: inline-block;
-    
-}
+
 
 .X{
     color: rgb(145, 132, 132);
@@ -219,7 +213,7 @@ button:hover {
 }
 
 
-                                    /* Upload video */
+                                 
 
 
 .container4 {
@@ -243,32 +237,9 @@ button:hover {
     
 }
 
-.video-title{
-    width: 20%;
-    padding: 2.5px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
 
-.video-description{
-    width: 35%;
-    height: 100px;
-    padding: 0px 2.5px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
-.video-url{
-    width: 20%;
-    padding: 2.5px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
+
 
 .upload{
     margin-top: 10px;
@@ -319,53 +290,8 @@ main{
     padding-bottom: 10px;
 }
 
-.video-box {
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
-    margin-bottom:  20px; 
-    margin-top: 15%;
-    margin-left: 5%;
-    background-color:  rgba(0, 0, 0, 0.8);
-    color: white;
-    line-height: 25px;
-    font-family: 'Times New Roman', Times, serif;
-    position: relative;
-    
-    /* Add additional styling for video box */
-}
 
 /* background-color:  rgba(126, 118, 118, 0.8); */
-
-.video-box video {
-    border-radius: 7px;
-    background-size: cover;
-    background-position: center;
-}
-
-.video-box:hover video {
-    background-image: none;
-}
-
-.video-box .title{
-    display: block;
-    text-decoration: none;
-    padding-left: 6px ;
-    font-size: larger;
-    /* word-wrap: break-word; */
-    height: 35px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    
-}
-
-.video-box .channel-name{
-    padding-left: 6px ;
-    display: block;
-}
-
-.video-box span{
-    padding-left: 6px;
-}
 
 
 
