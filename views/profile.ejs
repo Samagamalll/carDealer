@@ -146,19 +146,19 @@
                         <div>
                             <div class="">
                                 <h5>Email</h5>
-                                <input type="text" name="email" value = "<%= u.Email %>" readonly>
+                                <input type="text" name="email" value = "<%= u.Email %>" readonly required>
                             </div>
                             <div class="">
                                 <h5>Name</h5>
-                                <input type="text" name="username" value = "<%= u.UserName %>">
+                                <input type="text" name="username" value = "<%= u.UserName %>" required>
                             </div>
                             <div class="">
                                 <h5>Mobile</h5>
-                                <input type="text" name="mobile" value = "<%= u.Mobile %>">
+                                <input type="text" name="mobile" value = "<%= u.Mobile %>" required>
                             </div>
                             <div class="">
                                 <h5>Gender</h5>
-                                <input type="text" name="gender" value = "<%= u.Gender %>">
+                                <input type="text" name="gender" value = "<%= u.Gender %>" required>
                             </div>
                             <div class="">
                                 <% let date=new Date(u.createdAt); let

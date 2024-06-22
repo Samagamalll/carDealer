@@ -21,6 +21,10 @@ const GetLatestOffers = async (req, res) => {
 const AddOffer = async (req, res) => {
 
     try {
+        const existingoffer = await Offers.findOne({ carID: req.body.carID });
+        if (existingoffer) {
+            return res.status(400).send('Car ID already exists');
+        }
         if (req.body.carName === "") {
             return res.status(404).send('Car name cannot be empty');
         }
@@ -29,7 +33,7 @@ const AddOffer = async (req, res) => {
         }
         if (req.body.carDiscount === "") {
             return res.status(404).send('Discount cannot be empty');
-        } else if (req.body.carDiscount < 0 || req.body.carDiscount > 100) {
+        } else if (req.body.carDiscount < 0) {
             return res.status(404).send('Discount rate is invalid');
         }
         if (!req.body.carPrice) {
@@ -37,7 +41,7 @@ const AddOffer = async (req, res) => {
         } else if (req.body.carPrice <= 0) {
             return res.status(404).send("Car Price is invalid");
         }
-        if (req.body.imgurl = "") {
+        if (req.body.imgurl === "") {
             return res.status(404).send('Image url Cannot be empty');
         }
 
@@ -61,6 +65,7 @@ const AddOffer = async (req, res) => {
             });
     }
     catch (error) {
+        console.log(error)
         return res.status(500).send('Error Adding Offer');
     }
 };
@@ -86,7 +91,7 @@ const UpdateOffer = async (req, res) => {
             } else if (req.body.OldPrice <= 0) {
                 return res.status(404).send("Car Price is invalid");
             }
-            if (req.body.imgurl = "") {
+            if (req.body.imgurl === "") {
                 return res.status(404).send('Image url Cannot be empty');
             }
             const temp = await Offers.findOneAndUpdate({ carID: req.body.carID }, {
